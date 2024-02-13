@@ -1,16 +1,13 @@
-let user = {
-  // Properties
-  fName: "Mostafa",
-  lName: "Ahmed",
-  age: 20,
-  // Methods
-  fullName: function () {
-    return `Full Name Is: ${this.fName} ${this.lName}`;
-  },
-  ageDays: function () {
-    return `You Lived ${this.age * 365} Days`;
-  },
-};
+let user = new Object();
+
+// Properties
+user.fName = "Mostafa";
+user.lName = "Ahmed";
+user.age = 20;
+
+// Methods
+user.fullName = () => `Full Name Is: ${user.fName} ${user.lName}`;
+user.ageDays = () => `You Lived ${user.age * 365} Days`;
 
 console.log(user.fName);
 console.log(user.lName);
