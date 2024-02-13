@@ -1,20 +1,32 @@
-let mainObj = {
-  hasDiscount: true,
-  showMsg: function () {
-    return `You${this.hasDiscount ? "" : " Don't"} Have Discount`;
+const src1 = {
+  prop1: "Value1",
+  prop2: "Value2",
+  method1: function () {
+    return `Method 1`;
   },
 };
 
-console.log(mainObj.hasDiscount);
-console.log(mainObj.showMsg());
+const src2 = {
+  prop3: "Value3",
+  prop4: "Value4",
+  method2: function () {
+    return `Method 2`;
+  },
+};
 
-let otherObj = Object.create(mainObj);
+const target = {
+  prop5: "Value5",
+};
 
-otherObj.hasDiscount = false;
-console.log(otherObj.hasDiscount);
-console.log(otherObj.showMsg());
+Object.assign(target, src1, src2, { prop6: "Value6" });
 
-let lastObj = Object.create(mainObj);
+console.log(target);
 
-console.log(lastObj.hasDiscount);
-console.log(lastObj.showMsg());
+const myObject = Object.assign({}, target, { prop7: "Value7" });
+
+console.log(myObject);
+console.log(myObject.prop1);
+console.log(myObject.prop2);
+console.log(myObject.prop6);
+console.log(myObject.method1());
+console.log(myObject.method2());
