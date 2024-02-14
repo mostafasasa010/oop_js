@@ -1,42 +1,39 @@
-const user = { name: "Osama" };
+function Phone(serial, color, price) {
+  this.serial = serial;
+  this.color = color;
+  this.price = price - 100;
+}
 
-console.log(user);
-console.log(user.name);
+let phone1 = new Phone(123, "Red", 500);
+let phone2 = new Phone(159, "Black", 500);
+let phone3 = new Phone(167, "Silver", 500);
 
-// delete user; // Delete Property Not Object
-// delete user.name;
-// delete user["name"];
-console.log(delete user["name"]);
+console.log(phone1.serial);
+console.log(phone1.color);
+console.log(phone1.price);
 
-console.log(user);
-console.log(user.name);
+console.log(phone2.serial);
+console.log(phone2.color);
+console.log(phone2.price);
 
-console.log("#".repeat(15));
+console.log(phone3.serial);
+console.log(phone3.color);
+console.log(phone3.price);
 
-const username = "Osama";
-console.log(username);
-console.log(delete username);
-console.log(username);
+// const phone1 = {
+//   serial: 123,
+//   color: "Red",
+//   price: 500,
+// };
 
-console.log("#".repeat(15));
+// const phone2 = {
+//   serial: 159,
+//   color: "Black",
+//   price: 500,
+// };
 
-const freezedObj = Object.freeze({ age: 37 });
-console.log(freezedObj);
-console.log(freezedObj.age);
-
-console.log(delete freezedObj.age);
-
-console.log(freezedObj);
-console.log(freezedObj.age);
-
-console.log("#".repeat(15));
-
-const eObj = {};
-Object.defineProperty(eObj, "a", { value: 1, configurable: false });
-console.log(eObj);
-console.log(eObj.a);
-
-console.log(delete eObj.a);
-
-console.log(eObj);
-console.log(eObj.a);
+// const phone3 = {
+//   serial: 167,
+//   color: "Silver",
+//   price: 500,
+// };
