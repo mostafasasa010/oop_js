@@ -1,24 +1,25 @@
-function User(fName, lName, age, country) {
-  this.fName = fName;
-  this.lName = lName;
+function User(name, email, age, showEmail) {
+  this.name = name;
+  this.email = email;
   this.age = age;
-  this.country = country;
-  this.fullName = function () {
-    return `Full Name: ${this.fName} ${this.lName}`;
+  this.updateName = function (newName) {
+    if (this.age > 18) {
+      this.name = newName;
+    } else {
+      console.log(`You Cant Update Name Because Of Age Restriction`);
+    }
   };
-  this.ageInDays = function () {
-    return `Age In Days: ${this.age * 365}`;
+  this.showEmail = function () {
+    if (showEmail === true) {
+      return `Email Is: ${this.email}`;
+    } else {
+      return `Data Is Private`;
+    }
   };
 }
-// User.country = "Egypt"; Wrong
 
-let user1 = new User("Osama", "Elzero", 37, "Egypt");
-let user2 = new User("Ahmed", "Ali", 30, "KSA");
-
-console.log(user1);
-console.log(`Full Name: ${user1.fName} ${user1.lName}`);
-console.log(user1.fullName());
-console.log(user1.ageInDays());
-console.log(user2);
-console.log(user2.country);
-console.log(user2.ageInDays());
+let user1 = new User("Osama", "o@nn.sa", 19, false);
+console.log(user1.name);
+user1.updateName("Ahmed");
+console.log(user1.name);
+console.log(user1.showEmail());
