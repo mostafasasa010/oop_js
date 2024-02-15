@@ -1,6 +1,6 @@
 /*
-  Class
-  Inheritance
+  JavaScript Accessors
+  Getters & Setters
 */
 
 class User {
@@ -11,24 +11,28 @@ class User {
   sayHello() {
     return `Hello ${this.name}`;
   }
-  showEmail() {
-    return `Your Email Is ${this.email}`;
+  get showInfo() {
+    return `Name: ${this.name}, Email" ${this.email}`;
   }
-  writeMsg() {
-    return `Message From Parent Class`;
+  changeName(newName) {
+    this.name = newName;
   }
-}
-
-class Admin extends User {
-  constructor(name, email) {
-    super(name, email);
-  }
-  adminMsg() {
-    return `You Are Admin`;
-  }
-  writeMsg() {
-    return `Message From Child Class`;
+  set changeEmail(newEmail) {
+    this.email = newEmail;
   }
 }
 
-let admin1 = new Admin("Osama", "o@nn.sa");
+let user1 = new User("Osama", "o@nn.sa");
+
+console.log(user1.name);
+console.log(user1.email);
+console.log(user1.showInfo);
+
+user1.changeName("Mahmoud");
+console.log(user1.name);
+console.log(user1.showInfo);
+
+user1.changeEmail = "oooo@gmail.com";
+console.log(user1.name);
+console.log(user1.email);
+console.log(user1.showInfo);
