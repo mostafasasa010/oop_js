@@ -1,17 +1,12 @@
 /*
   Class
-  Static Properties & Methods
+  Inheritance
 */
 
 class User {
-  // Static Properties
-  static counter = 0;
-
-  constructor(name, email, counter) {
+  constructor(name, email) {
     this.name = name;
     this.email = email;
-    this.counter = counter;
-    User.counter++;
   }
   sayHello() {
     return `Hello ${this.name}`;
@@ -19,20 +14,21 @@ class User {
   showEmail() {
     return `Your Email Is ${this.email}`;
   }
-
-  // Static Methods
-  static countObjects = function () {
-    return `${this.counter} Objects Created.`;
-  };
+  writeMsg() {
+    return `Message From Parent Class`;
+  }
 }
 
-let user1 = new User("Osama", "o@nn.sa", 2);
-let user2 = new User("Ahmed", "o@nn.sa", 2);
-let user3 = new User("Osama", "o@nn.sa", 2);
-let user4 = new User("Osama", "o@nn.sa", 2);
-// let user2 = User("Ahmed", "a@nn.sa"); // TypeError: Class constructor User
+class Admin extends User {
+  constructor(name, email) {
+    super(name, email);
+  }
+  adminMsg() {
+    return `You Are Admin`;
+  }
+  writeMsg() {
+    return `Message From Child Class`;
+  }
+}
 
-console.log(typeof User); // Function
-console.log(User === User.prototype.constructor); // True
-
-console.log(User.countObjects());
+let admin1 = new Admin("Osama", "o@nn.sa");
