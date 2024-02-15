@@ -1,25 +1,24 @@
-function User(name, email, age, showEmail) {
+/*
+  Prototype
+*/
+
+function User(name) {
   this.name = name;
-  this.email = email;
-  this.age = age;
-  this.updateName = function (newName) {
-    if (this.age > 18) {
-      this.name = newName;
-    } else {
-      console.log(`You Cant Update Name Because Of Age Restriction`);
-    }
-  };
-  this.showEmail = function () {
-    if (showEmail === true) {
-      return `Email Is: ${this.email}`;
-    } else {
-      return `Data Is Private`;
-    }
+  this.welcome = function () {
+    return `Welcome ${this.name}`;
   };
 }
 
-let user1 = new User("Osama", "o@nn.sa", 19, false);
-console.log(user1.name);
-user1.updateName("Ahmed");
-console.log(user1.name);
-console.log(user1.showEmail());
+let user1 = new User("Osama");
+let user2 = new User("Ahmed");
+
+console.log(User.prototype);
+
+// function sayHello() {
+//   return 1;
+// }
+// console.log(sayHello.prototype);
+
+const arr = [1, 2, 3, 4, 5];
+console.log(Array.prototype);
+console.log(arr.reverse());
