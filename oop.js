@@ -1,38 +1,39 @@
 /*
-  JavaScript Accessors
-  Getters & Setters
+  Object Meta Data
+  writable
+  enumerable
+  configurable
+  ============
+  Object.defineProperty(obj, prop, descriptor)
 */
 
-class User {
-  constructor(name, email) {
-    this.name = name;
-    this.email = email;
-  }
-  sayHello() {
-    return `Hello ${this.name}`;
-  }
-  get showInfo() {
-    return `Name: ${this.name}, Email" ${this.email}`;
-  }
-  changeName(newName) {
-    this.name = newName;
-  }
-  set changeEmail(newEmail) {
-    this.email = newEmail;
-  }
+const myObject = {
+  a: 1,
+  b: 2,
+};
+
+Object.defineProperty(myObject, "c", {
+  writable: false,
+  enumerable: false,
+  configurable: true,
+  value: 3,
+});
+
+Object.defineProperty(myObject, "c", {
+  writable: true,
+});
+
+// console.log(delete myObject.c); // Will Not Delete Because configurable is False
+myObject.c = 500; // Will Not Change Because writable is False
+
+console.log(myObject);
+
+console.log("#".repeat(10));
+
+for (let prop in myObject) {
+  console.log(prop, myObject[prop]);
 }
 
-let user1 = new User("Osama", "o@nn.sa");
+console.log("#".repeat(10));
 
-console.log(user1.name);
-console.log(user1.email);
-console.log(user1.showInfo);
-
-user1.changeName("Mahmoud");
-console.log(user1.name);
-console.log(user1.showInfo);
-
-user1.changeEmail = "oooo@gmail.com";
-console.log(user1.name);
-console.log(user1.email);
-console.log(user1.showInfo);
+console.log(Object.getOwnPropertyNames(myObject));
