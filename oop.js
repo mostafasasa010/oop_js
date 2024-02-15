@@ -1,10 +1,5 @@
 /*
-  Object Meta Data
-  writable
-  enumerable
-  configurable
-  ============
-  Object.defineProperty(obj, prop, descriptor)
+  Object.defineProperties & Trainings
 */
 
 const myObject = {
@@ -12,28 +7,35 @@ const myObject = {
   b: 2,
 };
 
-Object.defineProperty(myObject, "c", {
+Object.defineProperty(myObject, "a", {
   writable: false,
   enumerable: false,
-  configurable: true,
+  configurable: false,
+  value: 500,
+});
+
+Object.defineProperty(myObject, "c", {
   value: 3,
 });
 
-Object.defineProperty(myObject, "c", {
-  writable: true,
+myObject.d = 4;
+
+Object.defineProperties(myObject, {
+  e: {
+    value: 5,
+  },
+  f: {
+    value: 6,
+  },
+  g: {
+    value: 7,
+  },
 });
 
-// console.log(delete myObject.c); // Will Not Delete Because configurable is False
-myObject.c = 500; // Will Not Change Because writable is False
-
 console.log(myObject);
-
-console.log("#".repeat(10));
-
-for (let prop in myObject) {
-  console.log(prop, myObject[prop]);
-}
-
-console.log("#".repeat(10));
+console.log(Object.getOwnPropertyDescriptor(myObject, "a"));
+console.log(Object.getOwnPropertyDescriptor(myObject, "c"));
+console.log(Object.getOwnPropertyDescriptor(myObject, "d"));
 
 console.log(Object.getOwnPropertyNames(myObject));
+console.log(Object.keys(myObject));
