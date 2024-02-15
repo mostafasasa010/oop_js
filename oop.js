@@ -19,4 +19,3 @@ let user1 = new User("Osama", "o@nn.sa");
 let user2 = new User("Ahmed");
 
 console.log(user1);
-console.log(user2);
